@@ -69,6 +69,8 @@ class motor_controller():
 		self.set_dir(SIDE_R, self.motor_r_dir)
 		self.set_dir(SIDE_L, self.motor_l_dir)
 		time.sleep(calc_delay)
+		self.set_speed(SIDE_R, 0);
+		self.set_speed(SIDE_L, 0);
 	
 	def shutdown(self):
 		self.set_speed(SIDE_R, 0)
@@ -102,7 +104,66 @@ my_motor.set_dir(SIDE_R, DIR_FWD)
 my_motor.set_dir(SIDE_L, DIR_FWD)
 my_motor.set_speed(SIDE_R, 100);
 my_motor.set_speed(SIDE_L, 100);
+time.sleep(0.4)
 
-time.sleep(1)
+my_motor.dead_stop()
+time.sleep(1.0)
+
+my_motor.set_dir(SIDE_R, DIR_BACK)
+my_motor.set_dir(SIDE_L, DIR_BACK)
+my_motor.set_speed(SIDE_R, 100);
+my_motor.set_speed(SIDE_L, 100);
+time.sleep(0.4)
+
+my_motor.dead_stop()
+time.sleep(1.0)
+
+my_motor.set_dir(SIDE_R, DIR_FWD)
+my_motor.set_dir(SIDE_L, DIR_FWD)
+my_motor.set_speed(SIDE_R, 100);
+my_motor.set_speed(SIDE_L, 100);
+time.sleep(0.4)
+
+my_motor.dead_stop()
+time.sleep(1.0)
+
+my_motor.set_dir(SIDE_R, DIR_BACK)
+my_motor.set_dir(SIDE_L, DIR_BACK)
+my_motor.set_speed(SIDE_R, 60);
+my_motor.set_speed(SIDE_L, 60);
+time.sleep(0.5)
+my_motor.dead_stop()
+time.sleep(0.4)
+
+my_motor.set_dir(SIDE_R, DIR_FWD)
+my_motor.set_dir(SIDE_L, DIR_FWD)
+my_motor.set_speed(SIDE_R, 60);
+my_motor.set_speed(SIDE_L, 60);
+time.sleep(0.6)
+
+my_motor.set_dir(SIDE_R, DIR_BACK)
+my_motor.set_dir(SIDE_L, DIR_FWD)
+my_motor.set_speed(SIDE_R, 60);
+my_motor.set_speed(SIDE_L, 60);
+time.sleep(0.4)
+
+my_motor.set_dir(SIDE_R, DIR_FWD)
+my_motor.set_dir(SIDE_L, DIR_BACK)
+my_motor.set_speed(SIDE_R, 60);
+my_motor.set_speed(SIDE_L, 60);
+time.sleep(0.8)
+
+my_motor.set_dir(SIDE_R, DIR_BACK)
+my_motor.set_dir(SIDE_L, DIR_FWD)
+my_motor.set_speed(SIDE_R, 60);
+my_motor.set_speed(SIDE_L, 60);
+time.sleep(0.4)
+
+my_motor.set_dir(SIDE_R, DIR_BACK)
+my_motor.set_dir(SIDE_L, DIR_BACK)
+my_motor.set_speed(SIDE_R, 25);
+my_motor.set_speed(SIDE_L, 25);
+time.sleep(0.9)
+
 my_motor.dead_stop()
 my_motor.shutdown()
