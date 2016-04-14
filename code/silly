@@ -1,0 +1,8 @@
+stop
+r fwd 100
+wait 1.0
+stop
+r back 100
+l fwd 100
+wait 0.4
+stop
