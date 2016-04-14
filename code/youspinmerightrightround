@@ -1,0 +1,40 @@
+# Silly spinning demo
+stop
+wait 1.0
+
+# slow spin at first
+r fwd 30
+l back 30
+wait 1.0
+
+l fwd 30
+r back 30
+wait 2.0
+
+r fwd 30
+l back 30
+wait 1.0
+
+deadstop
+wait 2.0
+
+# get fast and nasty
+r fwd 100
+l back 100
+wait 0.3
+r back 100
+l fwd 100
+wait 0.3
+r fwd 100
+l back 100
+wait 0.3
+r back 100
+l fwd 100
+wait 0.3
+r fwd 100
+l back 100
+wait 0.3
+r back 100
+l fwd 100
+wait 0.3
+deadstop
