@@ -36,6 +36,56 @@ class motor_controller():
 		self.motor_r_speed = 0
 		self.motor_l_speed = 0
 
+	def reset_pwm(self):
+		self.pi.set_PWM_frequency(MOTOR_R1_PWM, PWM_FREQ)
+		self.pi.set_PWM_frequency(MOTOR_L1_PWM, PWM_FREQ)
+		self.pi.set_PWM_frequency(MOTOR_R2_PWM, PWM_FREQ)
+		self.pi.set_PWM_frequency(MOTOR_L2_PWM, PWM_FREQ)
+		self.stop()
+
+	def play_note(self, channel, note, octave):
+		self.set_speed(SIDE_R, 1)
+		self.set_speed(SIDE_L, 1)
+		base_freq = 16.351 # C
+		note = note.upper()
+		if (note == 'C'):
+			base_freq = 16.351
+		elif (note == 'C#'):
+			base_freq = 17.324
+		elif (note == 'D'):
+			base_freq = 18.354
+		elif (note == 'D#'):
+			base_freq = 19.445
+		elif (note == 'E'):
+			base_freq = 20.601
+		elif (note == 'F'):
+			base_freq = 21.827
+		elif (note == 'F#'):
+			base_freq = 23.124
+		elif (note == 'G'):
+			base_freq = 24.499
+		elif (note == 'G#'): 
+			base_freq = 25.956
+		elif (note == 'A'):
+			base_freq = 27.5
+		elif (note == 'A#'):
+			base_freq = 29.135
+		elif (note == 'B'):
+			base_freq = 30.868
+
+		print ("Base: " + str(base_freq))
+
+		mult = pow(octave + 1, 2)
+		print ("Mult: " + str(mult))
+		freq = (base_freq) * mult
+
+		print ("Playing " + str(freq) + "Hz on channel " + str(channel))
+
+		self.pi.set_PWM_frequency(MOTOR_R1_PWM, freq)
+		self.pi.set_PWM_frequency(MOTOR_L1_PWM, freq)
+		self.pi.set_PWM_frequency(MOTOR_R2_PWM, freq)
+		self.pi.set_PWM_frequency(MOTOR_L2_PWM, freq)
+
 	def dead_stop(self):
 		# Reverse directions
 		if (self.motor_r_dir == DIR_FWD):

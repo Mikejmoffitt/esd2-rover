@@ -1,0 +1,5 @@
+rl fwd 40
+wait 0.5
+fl back 40
+wait 0.5
+stop

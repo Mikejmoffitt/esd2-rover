@@ -1,0 +1,14 @@
+rl fwd 90
+wait 0.07
+rl fwd 50
+wait 3.0
+deadstop
+wait 1.0
+rl back 30
+wait 1.0
+stop
+wait 1.0
+r fwd 100
+l back 20
+wait 1.0
+deadstop

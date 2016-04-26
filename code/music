@@ -1,0 +1,42 @@
+
+note 0 E 5
+wait 0.5
+note 0 B 5
+wait 0.25
+note 0 C 5
+wait 0.25
+note 0 D 5
+wait 0.5
+note 0 C 5
+wait 0.25
+note 0 B 5
+wait 0.25
+note 0 A 5
+wait 0.5
+note 0 A 5
+wait 0.25
+note 0 C 5
+wait 0.25
+note 0 E 5
+wait 0.5
+note 0 D 5
+wait 0.25
+note 0 C 5
+wait 0.25
+note 0 B 5
+wait 0.5
+note 0 B 5
+wait 0.25
+note 0 C 5
+wait 0.25
+note 0 D 5
+wait 0.5
+note 0 E 5
+wait 0.5
+note 0 C 5
+wait 0.5
+note 0 A 5
+wait 0.5
+note 0 A 5
+wait 1.0
+pwmset

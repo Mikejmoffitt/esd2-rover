@@ -3,8 +3,18 @@ from motor import motor_controller
 from constants import *
 import time
 import sys
+import signal
 
-def handle_line(motors, line):
+motors = motor_controller()
+
+def signal_handler(signal, frame):
+	print("Ctrl-C pressed; killing motors.")
+	motors.shutdown()
+	sys.exit(0)
+
+
+
+def handle_line(line):
 	print "> " + line
 	line = line.lower().rstrip(' \n').lstrip()
 	line = line.split(' ')
@@ -17,14 +27,24 @@ def handle_line(motors, line):
 		print "DONE"
 		return
 
-	if "#" in line[0]:
-		return
-
 	if "r" in line[0]:
 		motor_r_en = True
 	
 	if "l" in line[0]:
 		motor_l_en = True
+
+	if "pwmset" in line[0]:
+		motors.reset_pwm()
+		return
+
+	if "note" in line[0]:
+		channel = int(line[1])
+		note = line[2]
+		octave = int(line[3])
+		motors.play_note(channel, note, octave)
+		return
+	elif "#" in line[0]:
+		return
 	
 	if "deadstop" in line[0]:
 		motors.dead_stop()
@@ -57,23 +77,23 @@ def handle_line(motors, line):
 				motors.set_speed(SIDE_L, line[2])
 	print "-----------------\n"
 
-def run_recipe(motors, recipename):
+def run_recipe(recipename):
 	motors.dead_stop()
 	print "Opening " + recipename + "..."
 	f = open(recipename, "r")
 	lines = f.readlines()
 
 	for line in lines:
-		handle_line(motors, line)
+		handle_line(line)
 
 def main():
+	signal.signal(signal.SIGINT, signal_handler)
 	argc = len(sys.argv)
 	if (argc < 2):
 		print "Usage:"
 		print sys.argv[0] + " [programfile]"
 	else:
-		motors = motor_controller()
-		run_recipe(motors, sys.argv[1])
+		run_recipe(sys.argv[1])
 
 if __name__ == "__main__":
 	main()
