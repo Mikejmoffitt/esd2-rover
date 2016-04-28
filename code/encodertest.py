@@ -13,8 +13,10 @@ def signal_handler(signal, frame):
 
 def main():
 	signal.signal(signal.SIGINT, signal_handler)
-	motors.fwd(20)
+	motors.fwd(800)
 	motors.wait_complete()
+	print "DONE"
+	motors.dead_stop()
 	time.sleep(1.0)
 
 if __name__ == "__main__":
