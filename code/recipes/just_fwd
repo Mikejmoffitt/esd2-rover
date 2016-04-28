@@ -1,0 +1,25 @@
+rl fwd 20
+wait 1.0
+stop
+wait 0.5
+rl back 20
+wait 1.0
+deadstop
+rl fwd 100
+wait 2.0
+stop
+wait 1.0
+rl fwd 100
+wait 0.5
+rl back 100
+wait 0.5
+rl fwd 100
+wait 0.5
+rl back 100
+wait 0.5
+rl fwd 100
+wait 0.5
+rl back 100
+wait 1.0
+stop
+

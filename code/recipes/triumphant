@@ -1,23 +1,42 @@
-rl fwd 30
-wait 0.5
-rl fwd 50
-wait 0.5
-rl fwd 90
-wait 12.0
+rl fwd 100
+wait 12.4
 rl fwd 40
-wait 1.4
+wait 0.5
 deadstop
 wait 0.5
 # Turn 90 degrees clockwise
-r back 40
-l fwd 40
-wait 1.0
-deadstop
+r back 100
+l fwd 100
+wait 0.359
+stop
 # Head down the center corridor
 wait 0.25
 rl fwd 100
-wait 9.0
-rl fwd 50
-wait 1.0
+wait 8.75
 deadstop
-wait 1.0
+wait 0.3
+# Turn -90 degrees
+r fwd 100
+l back 100
+wait 0.361
+stop
+# Go towards desks a bit
+rl fwd 100
+wait 2.5
+deadstop
+wait 0.25
+# Turn 90 again
+r back 100
+l fwd 100
+wait 0.361
+stop
+wait 0.25
+# Forwards towards board
+rl fwd 100
+wait 3.0
+deadstop
+# 90 once more
+r back 100
+l fwd 100
+wait 0.361
+stop
